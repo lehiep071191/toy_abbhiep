@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Danh sách người dùng</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Tên người dùng</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'xem thông tin', user %></td>
+        <td><%= link_to 'sửa thông tin', edit_user_path(user) %></td>
+        <td><%= link_to 'xóa tài khoản', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Tạo tài khoản  mới', new_user_path %>
